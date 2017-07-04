@@ -43,7 +43,7 @@ RUN echo "deb http://ftp.us.debian.org/debian stretch main" \
 EXPOSE 3478/udp 6789/tcp 8080/tcp 8081/tcp 8443/tcp 8843/tcp 8880/tcp
 
     # SET INTERNAL STORAGE VOLUME
-VOLUME /config
+VOLUME /usr/lib/unifi/data
 
     # SET WORKING DIRECTORY FOR PROGRAM
 WORKDIR /usr/lib/unifi
