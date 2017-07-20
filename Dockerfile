@@ -6,7 +6,7 @@ LABEL build_version="brettm357 version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
     # SET ENVIROMENT VARIABLES
 ENV DEBIAN_FRONTEND noninteractive
-ENV UNIFI_VERSION 5.5.19-e1f8f0efe7
+ENV UNIFI_VERSION 5.5.20-1ca8f95c98
 
     # INSTALL PACKAGES
 RUN echo "deb http://ftp.us.debian.org/debian stretch main" \
@@ -51,6 +51,8 @@ WORKDIR /usr/lib/unifi
     # ADD SUPERVISOR CONFIG
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+HEALTHCHECK --interval=5m --timeout=3s \
+  CMD curl -f http://localhost:8443/ || exit 1
 	
 CMD ["/usr/bin/supervisord","--configuration=/etc/supervisor/supervisord.conf"]
 
