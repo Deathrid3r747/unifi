@@ -1,7 +1,7 @@
 FROM debian:stretch
 
 ARG BUILD_DATE
-ARG VERSION=5.6.7
+ARG VERSION=5.6.10
 LABEL build_version="brettm357 version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
     # SET ENVIROMENT VARIABLES
